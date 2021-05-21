@@ -22,7 +22,7 @@ const MediaPlayer = (props: VideoPlayerProps) => {
     };
   }, [props.audioTrack]);
   return (
-    <div ref={container}  className="video-player" style={{ width: "320px", height: "240px"}}></div>
+    <div ref={container}  className="video-player" style={{ width: "350px", height: "240px" ,borderRadius: "25px"}}></div>
   );
 }
 

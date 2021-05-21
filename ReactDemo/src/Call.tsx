@@ -7,9 +7,9 @@ import './Call.css';
 const client = AgoraRTC.createClient({ codec: 'h264', mode: 'rtc' });
 
 function Call() {
-  const [ appid, setAppid ] = useState('');
+  const [ appid, setAppid ] = useState('234f762c19bf462eafa87e9daef5fd18');
   const [ token, setToken ] = useState('');
-  const [ channel, setChannel ] = useState('');
+  const [ channel, setChannel ] = useState('test');
   const {
     localAudioTrack, localVideoTrack, leave, join, joinState, remoteUsers
   } = useAgora(client);
@@ -17,21 +17,10 @@ function Call() {
   return (
     <div className='call'>
       <form className='call-form'>
-        <label>
-          AppID:
-          <input type='text' name='appid' onChange={(event) => { setAppid(event.target.value) }}/>
-        </label>
-        <label>
-          Token(Optional):
-          <input type='text' name='token' onChange={(event) => { setToken(event.target.value) }} />
-        </label>
-        <label>
-          Channel:
-          <input type='text' name='channel' onChange={(event) => { setChannel(event.target.value) }} />
-        </label>
+
         <div className='button-group'>
-          <button id='join' type='button' className='btn btn-primary btn-sm' disabled={joinState} onClick={() => {join(appid, channel, token)}}>Join</button>
-          <button id='leave' type='button' className='btn btn-primary btn-sm' disabled={!joinState} onClick={() => {leave()}}>Leave</button>
+          <button id='join' type='button' className='btn btn-primary btn-sm' disabled={joinState} onClick={() => {join(appid, channel, token)}}>Start</button>
+          <button id='leave' type='button' className='btn btn-primary btn-sm' disabled={!joinState} onClick={() => {leave()}}>Stop</button>
         </div>
       </form>
       <div className='player-container'>
